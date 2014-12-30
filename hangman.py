@@ -15,6 +15,25 @@ def get_input():
     elif let not in string.ascii_letters:
         print "Please enter a letter!"
         return get_input()
+    return let
+
+
+def update_char(char, word, char_list, wrong_char_list):
+
+    if char not in word:
+        if char not in wrong_char_list:
+            wrong_char_list.append(char)
+        else:
+            raise ValueError
+    else:
+        if char not in char_list:
+            for index, c in enumerate(word):
+                if c == char:
+                    char_list[index] = char
+        else:
+            raise ValueError
+
+    return char_list, wrong_char_list
 
 
 def run_game():
@@ -23,4 +42,5 @@ def run_game():
 
 if __name__ == "__main__":
     #run_game()
-    get_input()
+    #get_input()
+    print update_char('r', 'tree', ['', '', 'e', ''], [''])
