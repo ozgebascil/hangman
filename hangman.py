@@ -1,9 +1,9 @@
 import string
+import random
 
-WORD = 'refrigerator'
 
-WORD_LIST = ['' for i in range(len(WORD))]
-#print WORD_LIST
+WORDS = ['refrigerator', 'tree', 'film', 'plates', 'tales']
+word = random.choice(WORDS)
 E = '_'
 
 
@@ -72,4 +72,4 @@ if __name__ == "__main__":
     #get_input()
     #print update_char('E', 'tree', [E, E, E, E], [])
     #print_table([E, E, 'e', 'e'], ['f', 'g'], 5)
-    run_game('tree', [E, E, E, E], [], 6)
+    run_game(word, [E for i in range(len(word))], [], 6)
