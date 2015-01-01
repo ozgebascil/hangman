@@ -20,21 +20,26 @@ def get_input():
 
 
 def update_char(char, word, char_list, wrong_char_list):
+    c_list = char_list[:]
+    w_char_list = wrong_char_list[:]
 
-    if char not in word.upper():
-        if char not in wrong_char_list:
-            wrong_char_list.append(char)
+    char = char.upper()
+    word = word.upper()
+
+    if char not in word:
+        if char not in w_char_list:
+            w_char_list.append(char)
         else:
             raise ValueError
     else:
-        if char not in char_list:
+        if char not in c_list:
             for index, c in enumerate(word):
                 if c == char:
-                    char_list[index] = char
+                    c_list[index] = char
         else:
             raise ValueError
 
-    return char_list, wrong_char_list
+    return c_list, w_char_list
 
 
 def print_table(char_list, wrong_char_list, lives_left):
@@ -57,20 +62,14 @@ def run_game(word, char_list, wrong_char_list, lives_left):
             print "You have already guessed this letter! %s" % char
             return run_game(word, char_list, wrong_char_list, lives_left)
         else:
-            if len(c_list) == len(char_list):
+            if len(w_char_list) != len(wrong_char_list):
                 lives_left -= 1
-
-            return run_game(word, char_list, wrong_char_list, lives_left)
-
-
-
-
-
+            return run_game(word, c_list, w_char_list, lives_left)
 
 
 if __name__ == "__main__":
     #run_game()
     #get_input()
-    #print update_char('r', 'tree', ['', '', 'e', ''], [''])
+    #print update_char('E', 'tree', [E, E, E, E], [])
     #print_table([E, E, 'e', 'e'], ['f', 'g'], 5)
     run_game('tree', [E, E, E, E], [], 6)
