@@ -4,6 +4,7 @@ WORD = 'refrigerator'
 
 WORD_LIST = ['' for i in range(len(WORD))]
 #print WORD_LIST
+E = '_'
 
 
 def get_input():
@@ -36,11 +37,19 @@ def update_char(char, word, char_list, wrong_char_list):
     return char_list, wrong_char_list
 
 
+def print_table(char_list, wrong_char_list, lives_left):
+    print char_list
+    print "You have guessed these letters incorrectly: %s " % ", ".join(wrong_char_list)
+    print "You have %s lives left" % lives_left
+
 def run_game():
     pass
+
+
 
 
 if __name__ == "__main__":
     #run_game()
     #get_input()
-    print update_char('r', 'tree', ['', '', 'e', ''], [''])
+    #print update_char('r', 'tree', ['', '', 'e', ''], [''])
+    print_table(['', '', 'e', ''], ['f', 'g'], 5)
