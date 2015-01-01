@@ -38,7 +38,7 @@ def update_char(char, word, char_list, wrong_char_list):
 
 
 def print_table(char_list, wrong_char_list, lives_left):
-    print char_list
+    print " ".join(char_list)
     print "You have guessed these letters incorrectly: %s " % ", ".join(wrong_char_list)
     print "You have %s lives left" % lives_left
 
@@ -52,4 +52,4 @@ if __name__ == "__main__":
     #run_game()
     #get_input()
     #print update_char('r', 'tree', ['', '', 'e', ''], [''])
-    print_table(['', '', 'e', ''], ['f', 'g'], 5)
+    print_table([E, E, 'e', 'e'], ['f', 'g'], 5)
